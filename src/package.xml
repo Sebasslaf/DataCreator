@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package xmlns="http://soap.sforce.com/2006/04/metadata">
+    <types>
+        <members>DataCreatorController</members>
+        <members>DataCreator_CreateUsersAsBatch</members>
+        <name>ApexClass</name>
+    </types>
+    <types>
+        <members>DataCreator</members>
+        <name>ApexPage</name>
+    </types>
+    <types>
+        <members>DataCreatorModule</members>
+        <members>DataCreatorModule_Map</members>
+        <members>globalStyles</members>
+        <name>StaticResource</name>
+    </types>
+    <version>40.0</version>
+</Package>

@@ -1,0 +1,809 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"back",
+				"background-color"
+			],
+			[
+				"font",
+				"font-size"
+			],
+			[
+				"Map",
+				"MapInit"
+			],
+			[
+				"con",
+				"continue"
+			],
+			[
+				"Last",
+				"LastRecurrence"
+			],
+			[
+				"last",
+				"lastRecurrenceToDeduct"
+			],
+			[
+				"lastr",
+				"lastRecurrenceToDeduct"
+			],
+			[
+				"lastRec",
+				"lastRecurrenceDate"
+			],
+			[
+				"lastre",
+				"lastRecurrenceDate"
+			],
+			[
+				"lastRe",
+				"lastRecurrenceDate"
+			],
+			[
+				"valu",
+				"valueOf"
+			],
+			[
+				"every",
+				"everyXDays"
+			],
+			[
+				"ear",
+				"EarlyStart"
+			],
+			[
+				"lo",
+				"log"
+			],
+			[
+				"user",
+				"userLocale"
+			],
+			[
+				"Re",
+				"Resource"
+			],
+			[
+				"getR",
+				"getResourcesAndCalendars"
+			],
+			[
+				"n",
+				"name"
+			],
+			[
+				"resources",
+				"resourcesToCheck"
+			],
+			[
+				"ser",
+				"serviceId"
+			],
+			[
+				"ServiceRes",
+				"ServiceResourceSkill"
+			],
+			[
+				"p",
+				"PolysEmpty"
+			],
+			[
+				"newIn",
+				"PUBLIC newInstance(Integer year, Integer month, Integer day, Integer hour, Integer minute, Integer second) \tDatetime"
+			],
+			[
+				"new",
+				"newDependecy"
+			],
+			[
+				"Service",
+				"ServiceTerritory"
+			],
+			[
+				"Ser",
+				"ServiceTerritory"
+			],
+			[
+				"Rando",
+				"RandomizedLatLong"
+			],
+			[
+				"Rand",
+				"RandomLongtitude"
+			],
+			[
+				"Random",
+				"RandomLatitude"
+			],
+			[
+				"Cen",
+				"CentralLongitude"
+			],
+			[
+				"Cent",
+				"CentralLatitude"
+			],
+			[
+				"Number",
+				"NumberOfVertices"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "src/classes/DataCreatorController.cls",
+			"settings":
+			{
+				"buffer_size": 1844,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/pages/DataCreator.page",
+			"settings":
+			{
+				"buffer_size": 19938,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/classes/DataCreator_CreateUsersAsBatch.cls",
+			"settings":
+			{
+				"buffer_size": 1507,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/staticresources/DataCreatorModule.resource",
+			"settings":
+			{
+				"buffer_size": 7128,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "src/staticresources/globalStyles.resource",
+			"settings":
+			{
+				"buffer_size": 1373,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 239.0,
+		"last_filter": "inden",
+		"selected_items":
+		[
+			[
+				"inden",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"inde",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"iden",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"indent",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"Package Control: Insta",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: install pa",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Controlre",
+				"Package Control: Remove Package"
+			],
+			[
+				"Package Control: Install ",
+				"Package Control: Install Package"
+			],
+			[
+				"package",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 412.0
+	},
+	"console":
+	{
+		"height": 139.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = '6f4c264a24d933ce70df5dedcf1dcaee' + 'ebe013ee18cced0ef93d5f746d80ef60'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/Users/sebastian.slafer/Documents/Mavensmate/DataCreator",
+		"/Users/sebastian.slafer/Documents/Mavensmate/DataCreator/src",
+		"/Users/sebastian.slafer/Documents/Mavensmate/DataCreator/src/classes",
+		"/Users/sebastian.slafer/Documents/Mavensmate/DataCreator/src/pages",
+		"/Users/sebastian.slafer/Documents/Mavensmate/DataCreator/src/staticresources"
+	],
+	"file_history":
+	[
+		"/Users/sebastian.slafer/Documents/Mavensmate/DataCreator/src/classes/DataCreator_CreateResources.cls",
+		"/Users/sebastian.slafer/Documents/Mavensmate/DataCreator/src/classes/DataCreator_CreateResourcesAsBatch.cls",
+		"/Users/sebastian.slafer/Documents/Mavensmate/DataCreator/src/classes/DataCreatorController.cls",
+		"/Users/sebastian.slafer/Documents/Mavensmate/DataCreator/src/pages/DataCreator.page",
+		"/Users/sebastian.slafer/Documents/Mavensmate/DataCreator/src/staticresources/globalStyles.resource",
+		"/Users/sebastian.slafer/Documents/Mavensmate/DataCreator/src/staticresources/DataCreatorModule_Map.resource",
+		"/Users/sebastian.slafer/Documents/Mavensmate/DataCreator/src/staticresources/DataCreatorModule.resource",
+		"/Users/sebastian.slafer/Documents/Mavensmate/DataCreator/src/staticresources/DataCreatorModule.resource-meta.xml",
+		"/Users/sebastian.slafer/Documents/Mavensmate/DataCreator/src/package.xml",
+		"/Users/sebastian.slafer/Documents/Mavensmate/DataCreator/src/staticresources/DataCreatorModule_Map.js",
+		"/Users/sebastian.slafer/Documents/Mavensmate/DataCreator/src/staticresources/DataCreatorModule_Map.resource-meta.xml",
+		"/Users/sebastian.slafer/Documents/Mavensmate/DataCreator/src/staticresources/S.js",
+		"/Users/sebastian.slafer/Documents/Mavensmate/DataCreator/src/globalStyles.css",
+		"/Users/sebastian.slafer/Documents/Mavensmate/DataCreator/src/staticresources/CSS.css",
+		"/Users/sebastian.slafer/Documents/Mavensmate/DataCreator/src/staticresources/CSS",
+		"/Users/sebastian.slafer/Documents/Mavensmate/DataCreator/config/.local_store",
+		"/Users/sebastian.slafer/Documents/Mavensmate/DataCreator/src/classes/FSL_DataCreatorController.cls",
+		"/Users/sebastian.slafer/Documents/Mavensmate/DataCreator/src/pages/DataCreator.page-meta.xml",
+		"/Users/sebastian.slafer/Documents/Mavensmate/DataCreator/src/staticresources/SLDS221.resource",
+		"/Users/sebastian.slafer/Library/Application Support/Sublime Text 3/Packages/User/VisualforcePreview.sublime-settings",
+		"/Users/sebastian.slafer/Library/Application Support/Sublime Text 3/Packages/VisualforcePreview/VisualforcePreview.sublime-settings",
+		"/Users/sebastian.slafer/Desktop/Apex Scripts/ExecutePolygonsCreate.cls",
+		"/Users/sebastian.slafer/Documents/Mavensmate/FE/lib/ant-salesforce.xml",
+		"/Users/sebastian.slafer/Documents/Mavensmate/FE/lib/ant-salesforce.jar",
+		"/Users/sebastian.slafer/Documents/Mavensmate/FE/build.properties",
+		"/Users/sebastian.slafer/Documents/Mavensmate/FE/dev/ScheduledApex/JobUtils.cls-meta.xml",
+		"/Users/sebastian.slafer/Documents/Mavensmate/FE/dev/General/Utils.cls-meta.xml",
+		"/Users/sebastian.slafer/Documents/Mavensmate/FE/dev/Actions/ServiceReport/vf110_ServiceReport.page-meta.xml",
+		"/Users/sebastian.slafer/Documents/Mavensmate/FE/dev/Actions/ServiceReport/Ctrl110_ServiceReport.cls-meta.xml",
+		"/Users/sebastian.slafer/Documents/Mavensmate/FE/dev/Triggers/Service/TR001_ServiceUtils.cls-meta.xml",
+		"/Users/sebastian.slafer/Documents/Mavensmate/FE/dev/Actions/ActionsNext/AppointmentBooking/ANAppointmentBookingBundleJs.js",
+		"/Users/sebastian.slafer/Downloads/Output1.json",
+		"/Users/sebastian.slafer/Documents/Mavensmate/FE/dev/Settings/CustomSettings.cls",
+		"/Users/sebastian.slafer/Documents/Mavensmate/FE/dev/Triggers/Service/TR001_ServiceUtils.cls",
+		"/Users/sebastian.slafer/Documents/Mavensmate/FE/dev/General/NotificationUtils.cls",
+		"/Users/sebastian.slafer/Library/Application Support/Sublime Text 3/Packages/Highlighter/highlighter.sublime-settings",
+		"/Users/sebastian.slafer/Library/Application Support/Sublime Text 3/Packages/BracketHighlighter/Example.sublime-keymap",
+		"/Users/sebastian.slafer/Library/Application Support/Sublime Text 3/Packages/User/Default (OSX).sublime-keymap",
+		"/Users/sebastian.slafer/Documents/Mavensmate/FE/dev/Actions/Recurrence/Ctrl006_AbsenceRecurrence.cls",
+		"/Users/sebastian.slafer/Documents/Mavensmate/FE/src/objects/Geocode_Settings__c.object",
+		"/Users/sebastian.slafer/Documents/Mavensmate/FE/dev/Actions/Recurrence/AbsenceRecurrence.js",
+		"/Users/sebastian.slafer/Documents/Mavensmate/FE/src/objects/Logic_Settings__c.object",
+		"/Users/sebastian.slafer/Documents/Mavensmate/FE/dev/Actions/Recurrence/vf006_AbsenceRecurrence.page",
+		"/Users/sebastian.slafer/Documents/Mavensmate/FE/dev/Gantt/js/Services/Gantt_monthlyViewHelperService.js",
+		"/Users/sebastian.slafer/Documents/Mavensmate/FE/dev/Actions/Recurrence/ServiceRecurrence.js",
+		"/Users/sebastian.slafer/Documents/Mavensmate/FE/dev/Gantt/ctrl001_ServiceExpert.cls",
+		"/Users/sebastian.slafer/Documents/Mavensmate/FE/dev/Logic/OAAS/BatchGenerateOptimizationData.cls",
+		"/Users/sebastian.slafer/Documents/Mavensmate/FE/dev/Actions/Recurrence/Ctrl021_AbsenceRecurrenceResult.cls",
+		"/Users/sebastian.slafer/Documents/Mavensmate/FE/dev/Actions/Recurrence/Ctrl020_ServiceRecurrence.cls",
+		"/Users/sebastian.slafer/Documents/Mavensmate/FE/dev/Actions/ActionsNext/AppointmentBooking/dev/directives/Datepicker.js",
+		"/Users/sebastian.slafer/Documents/Mavensmate/FE/src/components/LocalizedDatePicker.component",
+		"/Users/sebastian.slafer/Documents/Mavensmate/FE/dev/Actions/AppointmentBooking/vf030_AppointmentBooking.js",
+		"/Users/sebastian.slafer/Documents/Mavensmate/FE/dev/General/Utils.cls",
+		"/Users/sebastian.slafer/Documents/Mavensmate/FE/dev/Vendors/DateTimePicker.js",
+		"/Users/sebastian.slafer/Documents/Mavensmate/FE/dev/Gantt/js/GanttScripts.js",
+		"/Users/sebastian.slafer/Documents/Mavensmate/FE/dev/General/UI/LocalizedDatePicker/LocalizedDatePickerController.cls",
+		"/Users/sebastian.slafer/Documents/Mavensmate/FE/dev/General/UI/LocalizedDatePicker/LocalizedDatePicker.component",
+		"/Users/sebastian.slafer/Documents/Mavensmate/FE/dev/Gantt/js/Ang_Service_Utils.js",
+		"/Users/sebastian.slafer/Documents/Mavensmate/FE/dev/Gantt/js/Services/Gantt_CalendarsService.js",
+		"/Users/sebastian.slafer/Documents/Mavensmate/FE/dev/Actions/ActionsNext/General/AN_GlobalStyles.scss",
+		"/Users/sebastian.slafer/Documents/Mavensmate/FE/node_modules/jsforce/lib/api/chatter.js",
+		"/Users/sebastian.slafer/Documents/Mavensmate/FE/dev/Gantt/js/Ang_Service_sfdc.js",
+		"/Users/sebastian.slafer/Documents/Mavensmate/FE/dev/Gantt/js/Ang_Controller_Gantt.js",
+		"/Users/sebastian.slafer/Documents/Mavensmate/FE/dev/Vendors/Angular138min.js",
+		"/Users/sebastian.slafer/Documents/Mavensmate/FE/dev/Gantt/js/Filters/Gantt_ampmOr24Filter.js",
+		"/Users/sebastian.slafer/Desktop/v3.0.12/FSL/l10n/FSL/objects/ServiceAppointment.object.xlf",
+		"/Users/sebastian.slafer/Desktop/v3.0.12/FSL/l10n/FSL/labels/CustomLabels.labels.xlf",
+		"/Users/sebastian.slafer/Desktop/FSL/translations/es.translation",
+		"/Users/sebastian.slafer/Desktop/FSL/l10n/FSL/labels/CustomLabels.labels.xlf",
+		"/Users/sebastian.slafer/Desktop/l10n/translate",
+		"/Users/sebastian.slafer/Documents/Mavensmate/FSL/apex-scripts/Quick Actions Script!.cls",
+		"/Users/sebastian.slafer/Documents/Mavensmate/FSL/dev/Logic/Rules/Rule_MST_Service.cls",
+		"/Users/sebastian.slafer/Documents/Mavensmate/FSL/dev/Logic/Rules/RuleValidationsService.cls",
+		"/Users/sebastian.slafer/Documents/Mavensmate/FSL/dev/Logic/Rules/RuleMatch_Location_Service.cls",
+		"/Users/sebastian.slafer/Documents/Mavensmate/FSL/dev/Logic/Rules/IRuleSchedulingSlots.cls",
+		"/Users/sebastian.slafer/Documents/Mavensmate/FSL/dev/Logic/Rules/RuleResource_Availability_Service.cls",
+		"/Users/sebastian.slafer/Documents/Mavensmate/FSL/dev/General/Utils.cls",
+		"/Users/sebastian.slafer/Documents/Mavensmate/FSL/dev/Logic/Rules/RuleTimeSlot_Designated_Work.cls",
+		"/Users/sebastian.slafer/Documents/Mavensmate/FSL/dev/Logic/Rules/RuleMatch_Boolean_Service.cls",
+		"/Users/sebastian.slafer/Documents/Mavensmate/FSL/dev/Logic/Rules/RuleNon_Availability_Service.cls",
+		"/Users/sebastian.slafer/Documents/Mavensmate/FSL/dev/Logic/Rules/TimeRules/BeforeTimeRule.cls",
+		"/Users/sebastian.slafer/Documents/Mavensmate/FSL/dev/Logic/Rules/TimeRules/EqualToTimeRule.cls",
+		"/Users/sebastian.slafer/Documents/Mavensmate/FSL/dev/Logic/Rules/IRuleValidation.cls",
+		"/Users/sebastian.slafer/Documents/Mavensmate/FSL/dev/Installation/InstallScript.cls",
+		"/Users/sebastian.slafer/Documents/Mavensmate/FSL/apex-scripts/RunInstallScript.cls",
+		"/Users/sebastian.slafer/Documents/Mavensmate/Bunker Buster/FSL/src/applications/FieldService_Admin.app",
+		"/Users/sebastian.slafer/Documents/Mavensmate/Bunker Buster/FSL/gulp/gulpExpertUtils.js",
+		"/Users/sebastian.slafer/Desktop/gulpsfuser.js",
+		"/Users/sebastian.slafer/Documents/Mavensmate/FSL/dev/General/SObjectUtils.cls",
+		"/Users/sebastian.slafer/Documents/Mavensmate/FSL/node_modules/jsforce/lib/oauth2.js",
+		"/Users/sebastian.slafer/Documents/Mavensmate/FSL/src/objects/AssignedResource.object",
+		"/Users/sebastian.slafer/Documents/Mavensmate/FSL/gulp/gulpsfuser.js",
+		"/Users/sebastian.slafer/Desktop/Retreive_FSL_V3Patch_ToPush/FSLtoFork/l10n/FSL/labels/CustomLabels.labels.xlf",
+		"/Users/sebastian.slafer/Desktop/Retreive_FSL_V3Patch_ToPush/FSLtoFork/l10n/FSL/objects/ServiceAppointment.object.xlf",
+		"/Users/sebastian.slafer/Desktop/Retreive_FSL_V3Patch_ToPush/FSL/labels/CustomLabels.labels",
+		"/Users/sebastian.slafer/Desktop/Compare Develop and Explained labels/DevelopBranch/FSL/src/labels/CustomLabels.labels",
+		"/Users/sebastian.slafer/Downloads/FSL-develop/dev/Vendors/jsts_min.js",
+		"/Users/sebastian.slafer/Desktop/Retreive_FSL_V3Patch_ToPush/FSL/l10n/FSL/objects/Scheduling_Policy__c.object.xlf",
+		"/Users/sebastian.slafer/Desktop/Retreive_FSL_V3Patch_ToPush/FSL/l10n/FSL/objects/Polygon__c.object.xlf",
+		"/Users/sebastian.slafer/Desktop/Retreive_FSL_V3Patch_ToPush/FSLtoFork/l10n/FSL/labels/V3.16_Customlabels.xlf",
+		"/Users/sebastian.slafer/Documents/KingOfthehHillCode/apex-scripts/Dependecies Creation.cls",
+		"/Users/sebastian.slafer/Desktop/LatestPolygon Script",
+		"/Users/sebastian.slafer/Desktop/CreatePolygonsClass.cls",
+		"/Users/sebastian.slafer/Desktop/CreatePolygonsClass#2.cls",
+		"/Users/sebastian.slafer/Desktop/Retreive_FSL_V3Patch_ToPush/package.xml",
+		"/Users/sebastian.slafer/Downloads/Telegram Desktop/V3.0.1_CustomLabels.xlf",
+		"/Users/sebastian.slafer/Desktop/CreateDataClass.cls",
+		"/Users/sebastian.slafer/Downloads/Telegram Desktop/Dependecies Creation.cls",
+		"/Users/sebastian.slafer/Desktop/123.cls",
+		"/Users/sebastian.slafer/Desktop/ResourceAbsence.csv",
+		"/Users/sebastian.slafer/Desktop/XLIFF_To_Compare/Explained_CustomLabels.labels.xlf",
+		"/Users/sebastian.slafer/Downloads/Input1.json",
+		"/Users/sebastian.slafer/Downloads/ScheduleResult.json",
+		"/Users/sebastian.slafer/Desktop/XLIFF_To_Compare/new_CustomLabels.labels.xlf",
+		"/Users/sebastian.slafer/Desktop/Translations2.46/Retreive/l10n/FSL/labels/CustomLabels.labels.xlf",
+		"/Users/sebastian.slafer/Documents/KingOfthehHillCode/apex-scripts/PolygonsGeneratorAsBatch",
+		"/Users/sebastian.slafer/Desktop/Translationsv2.41/Deploy2.41/translations/en_US.translation",
+		"/Users/sebastian.slafer/Documents/KingOfthehHillCode/apex-scripts/Change ES-DD.cls",
+		"/Users/sebastian.slafer/Documents/KingOfthehHillCode/config/.settings",
+		"/Users/sebastian.slafer/Library/Application Support/Sublime Text 3/Packages/User/mavensmate.sublime-settings",
+		"/Users/sebastian.slafer/Documents/KingOfthehHillCode/src/package.xml",
+		"/Users/sebastian.slafer/Desktop/XLIFF_To_Compare/CustomLabels.labels.xlf",
+		"/Users/sebastian.slafer/Desktop/Translationsv2.19/XLIFF_Files/l10n/FSL/labels/CustomLabels.labels.xlf",
+		"/Users/sebastian.slafer/Desktop/Translationsv2.19/Retreive2.19/l10n/tools/ruby/pseudo.rb",
+		"/Users/sebastian.slafer/Desktop/Translationsv2.19/Retreive2.19/translations/de.translation",
+		"/Users/sebastian.slafer/Desktop/PaintInBatch.cls",
+		"/Users/sebastian.slafer/Desktop/ExecutePolygonsCreate.cls"
+	],
+	"find":
+	{
+		"height": 39.0
+	},
+	"find_in_files":
+	{
+		"height": 378.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"FinishedWork",
+			"CreateWorking",
+			"Working",
+			"create",
+			"initialTer",
+			"Visualforce.remoting.Manager.invokeAction",
+			"Visualforce.remoting.Manager.invokeAction(",
+			"Service Terr",
+			"serviceTer",
+			"Amount",
+			"CreateResources",
+			"serviceTer",
+			"ResPrefix",
+			"radius",
+			"Amount",
+			"getNumOfAvaliableResToCreate",
+			"CreateResources",
+			"resource",
+			"create",
+			"Amount",
+			"amount",
+			"response",
+			"formatted_address",
+			"center",
+			"UpdateMap",
+			"UpdateAddress",
+			"address",
+			"click",
+			"CreateOrUpdateCircle",
+			"UpdateAddress",
+			"null",
+			"CreateOrUpdateCircle",
+			"getNumOfAvaliableResToCreate",
+			"LicenseNumberplacehold",
+			"scope",
+			"getNumOfAvaliableResToCreate",
+			"getNum",
+			"radius",
+			"updateRad",
+			"map",
+			"}",
+			"$timeout",
+			"MapInit",
+			"tab",
+			"initiated",
+			"initMap",
+			"map",
+			"ll",
+			"getPlaces()"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": true,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 1,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "src/classes/DataCreatorController.cls",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1844,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1750,
+								1750
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/MavensMate/sublime/lang/Apex.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "src/pages/DataCreator.page",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 19938,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								15581,
+								15581
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/MavensMate/sublime/lang/Visualforce.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 3170.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "src/classes/DataCreator_CreateUsersAsBatch.cls",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1507,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1431,
+								1431
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/MavensMate/sublime/lang/Apex.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "src/staticresources/DataCreatorModule.resource",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 7128,
+						"regions":
+						{
+							"bookmarks":
+							{
+								"flags": 144,
+								"icon": "bookmark",
+								"regions":
+								[
+									[
+										5838,
+										5838
+									]
+								],
+								"scope": "bookmarks"
+							}
+						},
+						"selection":
+						[
+							[
+								6210,
+								6210
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 3043.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "src/staticresources/globalStyles.resource",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1373,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								558,
+								558
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/CSS/CSS.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 282.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 26.0
+	},
+	"input":
+	{
+		"height": 45.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.MavensMate-OutputPanel":
+	{
+		"height": 114.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "DataCreator.sublime-project",
+	"replace":
+	{
+		"height": 48.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"ll",
+				"config/.local_store"
+			],
+			[
+				"tr001_serv",
+				"dev/Triggers/Service/TR001_ServiceUtils.cls"
+			],
+			[
+				"tr001_ser",
+				"dev/Triggers/Service/TR001_ServiceUtils.cls"
+			],
+			[
+				"vf110",
+				"dev/Actions/ServiceReport/vf110_ServiceReport.page-meta.xml"
+			],
+			[
+				"cls-meta",
+				"dev/General/Utils.cls-meta.xml"
+			],
+			[
+				"cls-met",
+				"dev/Triggers/Service/TR001_ServiceUtils.cls-meta.xml"
+			],
+			[
+				"servicerec",
+				"dev/Actions/Recurrence/Ctrl020_ServiceRecurrence.cls"
+			],
+			[
+				"localized",
+				"src/components/LocalizedDatePicker.component"
+			],
+			[
+				"anappo",
+				"dev/Actions/ActionsNext/AppointmentBooking/ANAppointmentBookingBundleJs.js"
+			],
+			[
+				"datepicker",
+				"dev/Actions/ActionsNext/AppointmentBooking/dev/directives/Datepicker.js"
+			],
+			[
+				"calendarservice",
+				"dev/Gantt/js/Services/Gantt_CalendarsService.js"
+			],
+			[
+				"datepic",
+				"dev/General/UI/LocalizedDatePicker/LocalizedDatePickerController.cls"
+			],
+			[
+				"datep",
+				"dev/General/UI/LocalizedDatePicker/LocalizedDatePicker.component"
+			],
+			[
+				"build.",
+				"build.properties"
+			],
+			[
+				"gantts",
+				"dev/Gantt/js/GanttScripts.js"
+			],
+			[
+				"chatte",
+				"node_modules/jsforce/lib/api/chatter.js"
+			],
+			[
+				"gis",
+				"dev/Logic/Travel/GISUtilities.cls"
+			],
+			[
+				"meta.x",
+				"dev/General/Utils.cls-meta.xml"
+			],
+			[
+				"servicesch",
+				"dev/Logic/GetCandidates/ServiceSchedulingSlotsService.cls"
+			],
+			[
+				"oau",
+				"node_modules/jsforce/lib/oauth2.js"
+			],
+			[
+				"oauth",
+				"node_modules/jsforce/lib/oauth2.js"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 392.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 392.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": false,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 394.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

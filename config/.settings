@@ -1,0 +1,17 @@
+{
+    "projectName": "DataCreator",
+    "username": "sebas@bunker.buster",
+    "id": "5b9b6470-a767-11e7-a53c-6be3abd25083",
+    "namespace": "",
+    "orgType": "developer",
+    "loginUrl": "https://login.salesforce.com/",
+    "instanceUrl": "https://na59.salesforce.com",
+    "workspace": "/Users/sebastian.slafer/Documents/Mavensmate",
+    "subscription": [
+        "ApexClass",
+        "ApexComponent",
+        "ApexPage",
+        "ApexTrigger",
+        "StaticResource"
+    ]
+}

@@ -1,0 +1,70 @@
+[
+    {
+        "attributes": {
+            "type": "AuraDefinition",
+            "url": "/services/data/v40.0/tooling/sobjects/AuraDefinition/0Adf40000002N5vCAE"
+        },
+        "Id": "0Adf40000002N5vCAE",
+        "AuraDefinitionBundleId": "0Abf40000000mDFCAY",
+        "AuraDefinitionBundle": {
+            "attributes": {
+                "type": "AuraDefinitionBundle",
+                "url": "/services/data/v40.0/tooling/sobjects/AuraDefinitionBundle/0Abf40000000mDFCAY"
+            },
+            "DeveloperName": "AppointmentBooking"
+        },
+        "DefType": "COMPONENT",
+        "Format": "XML"
+    },
+    {
+        "attributes": {
+            "type": "AuraDefinition",
+            "url": "/services/data/v40.0/tooling/sobjects/AuraDefinition/0Adf40000002N5wCAE"
+        },
+        "Id": "0Adf40000002N5wCAE",
+        "AuraDefinitionBundleId": "0Abf40000000mDFCAY",
+        "AuraDefinitionBundle": {
+            "attributes": {
+                "type": "AuraDefinitionBundle",
+                "url": "/services/data/v40.0/tooling/sobjects/AuraDefinitionBundle/0Abf40000000mDFCAY"
+            },
+            "DeveloperName": "AppointmentBooking"
+        },
+        "DefType": "CONTROLLER",
+        "Format": "JS"
+    },
+    {
+        "attributes": {
+            "type": "AuraDefinition",
+            "url": "/services/data/v40.0/tooling/sobjects/AuraDefinition/0Adf40000002N5xCAE"
+        },
+        "Id": "0Adf40000002N5xCAE",
+        "AuraDefinitionBundleId": "0Abf40000000mDFCAY",
+        "AuraDefinitionBundle": {
+            "attributes": {
+                "type": "AuraDefinitionBundle",
+                "url": "/services/data/v40.0/tooling/sobjects/AuraDefinitionBundle/0Abf40000000mDFCAY"
+            },
+            "DeveloperName": "AppointmentBooking"
+        },
+        "DefType": "STYLE",
+        "Format": "CSS"
+    },
+    {
+        "attributes": {
+            "type": "AuraDefinition",
+            "url": "/services/data/v40.0/tooling/sobjects/AuraDefinition/0Adf40000002N5yCAE"
+        },
+        "Id": "0Adf40000002N5yCAE",
+        "AuraDefinitionBundleId": "0Abf40000000mDFCAY",
+        "AuraDefinitionBundle": {
+            "attributes": {
+                "type": "AuraDefinitionBundle",
+                "url": "/services/data/v40.0/tooling/sobjects/AuraDefinitionBundle/0Abf40000000mDFCAY"
+            },
+            "DeveloperName": "AppointmentBooking"
+        },
+        "DefType": "DESIGN",
+        "Format": "XML"
+    }
+]

@@ -1,0 +1,231 @@
+<apex:page Controller="DataCreatorController" showHeader="false" standardStylesheets="false" sidebar="false" applyHtmlTag="false" applyBodyTag="false" docType="html-5.0">
+    <apex:slds />
+     <html xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+       <apex:stylesheet value="{!URLFOR($Resource.SLDS221, 'assets/styles/salesforce-lightning-design-system-vf.min.css')}" />
+       <apex:includescript value="{!$Resource.angular150min}" />
+       <apex:includescript value="{!$Resource.DataCreatorModule}" />
+       <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDRrrvrBfNHLPVBvB_z5pcEXrR4zov2uXw&libraries=places"></script>
+       <head>
+           <meta charset="utf-8" />
+           <meta http-equiv="x-ua-compatible" content="ie=edge" />
+           <link rel="stylesheet" type="text/css" href="{!$Resource.globalStyles}"></link>
+           <title>FSL Data Creator Tool</title>
+       </head>
+         <body>
+             <div class="slds-scope"> <!-- slds-scope Start -->       
+                 <div class="DataCreator" ng-app="DataCreator" ng-controller="FSLDataCreatorController" ng-init="init()"> <!-- The entire App Container Start -->
+                     <div class="entireAppDiv">
+                         <div class="tabs-div">
+                                 <ul class="slds-tabs_default__nav" role="tablist">
+                                   <li class="slds-tabs_default__item" ng-class="tabClasses[0]" ng-click="changeTab(0)"><a class="slds-tabs_default__link">Introduction</a></li>
+                                   <li class="slds-tabs_default__item" ng-class="tabClasses[1]" ng-click="changeTab(1)"><a class="slds-tabs_default__link">Resources Creation</a></li>
+                                 </ul>
+                         </div>
+                                   <!-- Introduction Tab -->
+                                   <div class="slds-tabs--default__content" ng-show="showTab==0">
+                                       <p class="slds-page-header__title slds-truncate slds-align-absolute-middle">Welcome to the FSL Data Creation Tool!</p>
+                                       <p class="slds-align--absolute-left slds-size--2-of-3" style="font-size: larger;">This tool is useful for a quick creation of a randomized and versatile set of data such as:<br /> Service Resources, Service Appointments, Service Territories, Work Orders and more.</p>
+                                       <div class="slds-align--absolute-left slds-size--2-of-3 slds-p-top_small slds-hyphenate" style="font-size: larger;">
+                                          <ol class="slds-list--ordered">
+                                           <li><a ng-click="changeTab(1)">Create Resources</a> and STM's based on a provided address and a radius around it, you can set how many resources to create and the tool will randomize their homebases inside the radius.</li>
+                                          </ol>
+                                   </div>
+                               </div>
+    
+                                  <!-- Create Resources Tab -->
+                               <div class="entire-container">
+                                   <div class="create-resources-tab">
+                                       <div class="entire-create-resources-tab1" ng-show="showTab==1">
+                                           <div class="slds-page-header slds-m-bottom--medium" role="banner">
+                                               <div class="slds-media slds-media_center">
+                                                   <div class="slds-media__figure">
+                                                        <span class="slds-avatar slds-avatar_medium">
+                                                           <img alt="Service Resource" src="/img/icon/serviceResource32.png" title="Service Resource" />
+                                                        </span>
+                                                   </div>
+                                                     <div class="slds-media__body">
+                                                           <p class="slds-page-header__title slds-truncate slds-align-middle">Resources Creation</p>
+                                                     </div>
+                                               </div>
+                                                  <div id="please-make-sure-resource-tab">
+                                                          <p>Please make sure that the selected amount of resources to create isn't larger than the available 
+                                                          'Salesforce User Licences' and 'Scheduling Permission Set Licences' on your org.</p>
+                                                  </div>
+                                           </div>
+    
+                                              
+    
+                                      <div class="input-fields-wrapper">
+                                        
+                                        
+                                          <!-- Amount -->
+                                      
+                                          <div class="Amount" style="padding-top: 3rem ">
+                                            <!--  Start of Available licences -->
+
+                                           <textarea id="num-of-available-licences" class="slds-textarea slds-size--1-of-5" ng-disabled="true">The number of available resources to create: {{LicenseNumberplacehold}}  </textarea>
+                                            <!--  End of Available licences -->
+
+                                              <div class="slds-form-element slds-size--1-of-5">
+                                                  <abbr class="slds-required" title="">*</abbr>
+                                                  <label class="slds-form-element__label slds-align-middle" for="form-help">Amount</label>
+                                                  <div ng-mouseenter="AmountTooltipStatus=true" ng-mouseleave="AmountTooltipStatus=false" class="slds-form-element__icon">
+                                                      <button aria-describedby="help" class="slds-button slds-button_icon">
+                                                          <div xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                                              <svg aria-hidden="true" class="slds-icon slds-icon_x-small slds-icon-text-default" >
+                                                                  <use xlink:href="{!URLFOR($Asset.SLDS, 'assets/icons/utility-sprite/svg/symbols.svg#info')}"></use>
+                                                              </svg>
+                                                              <span class="slds-assistive-text">Help</span>
+                                                          </div>
+                                                      </button>
+                                                  </div>
+                                                  <div class="slds-form-element__control">
+                                                      <input type="number" class="slds-input" id="form-help" placeholder="" ng-model="Amount" />
+                                                  </div>
+                                              </div>
+                                              <div class="slds-popover slds-popover_tooltip slds-nubbin_bottom-left" 
+                                                   id="AmountToolTipHelp" ng-show="AmountTooltipStatus" role="tooltip"
+                                                  style="margin-left:-1rem;width:20rem;">
+                                                  <div class="slds-popover__body slds-text-longform">
+                                                      <p>Input the amount of resources to create</p>
+                                                  </div>
+                                              </div>
+                                          </div>
+                                              <!-- End of Amount -->
+                                              <!--  Service Territory Picklist> -->
+                                          <fieldset class="slds-form--compound">
+                                              <div class="form-element__group">
+                                                  <div class="slds-form-element__row slds-size--1-of-5" style="margin-top: 1rem;">
+                                                      <div class="slds-form-element">
+                                                          <abbr class="slds-required" title="">*</abbr>
+                                                          <label class="slds-form-element__label" for="select-01">Service Territory</label>
+                                                          <div ng-mouseenter="SerTerTooltipStatus=true" ng-mouseleave="SerTerTooltipStatus=false" class="slds-form-element__icon">
+                                                              <button aria-describedby="help2" class="slds-button slds-button_icon">
+                                                                  <div xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                                                      <svg aria-hidden="true" class="slds-icon slds-icon_x-small slds-icon-text-default" >
+                                                                          <use xlink:href="{!URLFOR($Asset.SLDS, 'assets/icons/utility-sprite/svg/symbols.svg#info')}"></use>
+                                                                      </svg>
+                                                                      <span class="slds-assistive-text">Help</span>
+                                                                  </div>
+                                                              </button>
+                                                          </div>
+                                                          <div class="slds-form-element__control">
+                                                              <div class="slds-select_container" >
+                                                                  <select class="slds-select" 
+                                                                          ng-model="initialTer"
+                                                                          ng-options="Ter.Name for Ter in Ters">
+                                                                  </select>
+                                                              </div>
+                                                          </div>
+                                                      </div>
+                                                  </div>
+                                                  <div class="slds-popover slds-popover_tooltip slds-nubbin_bottom-left slds-popover_large" 
+                                                       id="SerTerToolTipResCreate" ng-show="SerTerTooltipStatus" role="tooltip"
+                                                       style="margin-left:-1rem;width:30rem; ">
+                                                      <div class="slds-popover__body slds-text-longform">
+                                                          <p>Select the territory you wish the created resources will have relevant STM's assigned to them for a year forward.</p>
+                                                      </div>
+                                                  </div>
+                                              </div>
+                                          </fieldset>
+                                                  <!-- End of Service Territory Picklist> -->
+                                                  <!-- Start of ResourceName Prefix -->
+                                          <div class="ResName_Prefix" style="padding-top: 1rem ">
+                                              <div class="slds-form-element slds-size--1-of-5">
+                                                  <abbr class="slds-required" title="">*</abbr>
+                                                  <label class="slds-form-element__label slds-align-middle" for="form-help">Resource Name Prefix</label>
+                                                  <div ng-mouseenter="ResNamePrefixTooltipStatus=true" ng-mouseleave="ResNamePrefixTooltipStatus=false" class="slds-form-element__icon">
+                                                      <button aria-describedby="help" class="slds-button slds-button_icon">
+                                                          <div xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                                              <svg aria-hidden="true" class="slds-icon slds-icon_x-small slds-icon-text-default" >
+                                                                  <use xlink:href="{!URLFOR($Asset.SLDS, 'assets/icons/utility-sprite/svg/symbols.svg#info')}"></use>
+                                                              </svg>
+                                                              <span class="slds-assistive-text">Help</span>
+                                                          </div>
+                                                      </button>
+                                                  </div>
+                                                  <div class="slds-form-element__control">
+                                                      <input type="text" class="slds-input" id="form-help" placeholder="" ng-model="ResPrefix" />
+                                                  </div>
+                                              </div>
+                                              <div class="slds-popover slds-popover_tooltip slds-nubbin_bottom-left" 
+                                                      id="ResourceNamePrefix" ng-show="ResNamePrefixTooltipStatus" role="tooltip"
+                                                      style="margin-left:-1rem;width:19rem; ">
+                                                  <div class="slds-popover__body slds-text-longform">
+                                                      <p>Input the Resource's name Prefix(i.e 'Res' will be created as Res1,Res2,Res3 and etc.)</p>
+                                                  </div>
+                                                  </div>
+                                              </div>
+                                                  <!-- End of ResourceName Prefix -->
+                                                  <!-- Start of Radius Field -->
+                                          <div class="Radius" style="padding-top: 1rem ">
+                                              <div class="slds-form-element slds-size--1-of-5">
+                                                <abbr class="slds-required" title="">*</abbr>
+                                                  <label class="slds-form-element__label slds-align-middle" for="form-help">Radius</label>
+                                                  <div ng-mouseenter="RadiusToolTipStatus=true" ng-mouseleave="RadiusToolTipStatus=false" class="slds-form-element__icon">
+                                                      <button aria-describedby="help" class="slds-button slds-button_icon">
+                                                          <div xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                                              <svg aria-hidden="true" class="slds-icon slds-icon_x-small slds-icon-text-default" >
+                                                                  <use xlink:href="{!URLFOR($Asset.SLDS, 'assets/icons/utility-sprite/svg/symbols.svg#info')}"></use>
+                                                              </svg>
+                                                              <span class="slds-assistive-text">Help</span>
+                                                          </div>
+                                                      </button>
+                                                  </div>
+                                                  <div class="slds-form-element__control">
+                                                      <input type="number" class="slds-input" id="Radius" placeholder=""  ng-model="radius" ng-change="updateRadius(radius)"></input>
+                                                  </div>
+                                              </div>
+                                              <div class="slds-popover slds-popover_tooltip slds-nubbin_bottom-left" 
+                                                   id="RadiusToolTipHelp" ng-show="RadiusToolTipStatus" role="tooltip"
+                                                  style="margin-left:-1rem;width:20rem;">
+                                                  <div class="slds-popover__body slds-text-longform">
+                                                      <p>Input the radius(KM) that the STM's will be created on according to the inputted address.</p>
+                                                  </div>
+                                              </div>
+                                           </div>
+                                           <!-- End of Radius Field -->
+
+                                           
+                                       </div>
+                                      <!-- Map -->
+                                          <input id="address-input" class="slds-input" type="text" placeholder="Enter Address Here First" ng-disabled="working" />
+                                          <div id="map">
+                                            
+                                          </div>
+                                          <!-- Start of CreateResources Button -->       
+                                       <div>
+                                           <button class="slds-button slds-button_brand slds-m-top--medium slds-m-bottom--left" id="create-resources-button"  
+                                                  ng-click="CreateResources(Amount,radius,ResPrefix,initialTer);" ng-disabled="working" style="font-size:small;">Create Resources!
+                                           </button>
+                                      </div>
+                                      <!-- Start Working Spinner -->
+                                      <div class="slds-spinner_container ngcloak" ng-show="CreateWorking">
+                                        <div class="slds-spinner--brand slds-spinner slds-spinner--large" aria-hidden="true" role="alert">
+                                          <div class="slds-spinner__dot-a"></div>
+                                          <div class="slds-spinner__dot-b"></div>
+                                        </div>
+                                      </div>
+          <!--    End Working Spinner -->
+
+                                          <!-- End of CreateResources Button --> 
+                       </div>
+    
+                   						
+                   
+                        </div>
+                        </div>
+                     </div>
+                 </div><!-- The entire App Container End -->
+             </div> 
+         </body>
+        <script>
+         var RemoteActions = {
+            getAllTers: '{!$RemoteAction.DataCreatorController.getAllTers}',
+            getNumOfAvaliableResToCreate: '{!$RemoteAction.DataCreatorController.getNumOfAvaliableResToCreate}',
+            CreateResources: '{!$RemoteAction.DataCreatorController.CreateResources}'
+
+            };
+         </script>
+     </html>
+ </apex:page>

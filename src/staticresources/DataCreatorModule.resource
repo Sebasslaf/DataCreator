@@ -192,14 +192,14 @@
       setTimeout(function(){$scope.CreateWorking=false;}, 3000);
     }
 
-    $scope.CreateResources = function(Amount,radius,ResPrefix,serviceTer){
+    $scope.CreateResources = function(Amount,radius,ResPrefix,serviceTer,lat,lng){
       $scope.CreateWorking=true;
 
       $scope.FinishedWork();
       
       
       Visualforce.remoting.Manager.invokeAction(
-      RemoteActions.CreateResources,$scope.Amount, $scope.radius, $scope.ResPrefix, $scope.initialTer.Name,
+      RemoteActions.CreateResources,$scope.Amount, $scope.radius, $scope.ResPrefix, $scope.initialTer.Name, $scope.circle.getCenter().lat(), $scope.circle.getCenter().lng(),
       function(msg,ev){
         
         }, {escape: false})
@@ -230,12 +230,17 @@
             strokeOpacity: 0.7,
             editable: false,
             strokeWeight: 0.5
+
+
           });
+          console.log('Current position' + $scope.circle.getCenter());
         }
         else
         {
           $scope.circle.setCenter(latlng);
           $scope.circle.setRadius($scope.radius * 1000);
+          console.log('Current position' + $scope.circle.getCenter());
+          
 
         }
       }

@@ -30,12 +30,32 @@ global class DataCreatorController {
     	}
     	
     	@RemoteAction
-    	global static String CreateResources(Integer numOfUsers, Integer Radius, String Prefix, String serviceTer)
+    	global static String CreateResources(Integer numOfUsers, Double Radius, String Prefix, String serviceTer,Decimal centralLat, Decimal centralLong)
         {
-    		DataCreator_CreateUsersAsBatch batch = new DataCreator_CreateUsersAsBatch(numOfUsers,Prefix);
-            Database.executeBatch(batch);
+    		DataCreator_CreateUsersAsBatch batch = new DataCreator_CreateUsersAsBatch(numOfUsers,Prefix,centralLat,centralLong,Radius,serviceTer);
+            Database.executeBatch(batch,50);
             
         return 'Success!';
     	}
-
+        public static List<Double> GenerateLatLongWithinCircle (Decimal LatCenter , Decimal LongCenter, double rad)
+        {
+            List<Double> results = new List<Double>();
+            Decimal radiusInDegrees = rad / 111.0;
+            Decimal u = Math.random();
+            Decimal v = Math.random();
+            Decimal w = radiusInDegrees * Math.sqrt(u);
+            Decimal t = 2 * Math.PI * v;
+            Decimal x = w * Math.cos(t);
+            Decimal y = w * Math.sin(t);  
+            
+            double new_x = x / Math.cos(LongCenter);
+            Decimal foundLongitude = new_x + LongCenter;
+            Decimal foundLatitude = y + LatCenter;
+            System.debug('Longitude: ' + foundLongitude + '  Latitude: ' + foundLatitude );
+            results.add(foundLatitude);
+            results.add(foundLongitude);
+            return results;
+        }
+            
 }
+

@@ -1,17 +1,19 @@
-global class DataCreatorController {
+public class DataCreatorController {
     
 
-    global DataCreatorController() {
+    public DataCreatorController() {
+        
     }
+    
     	@RemoteAction
-    	global static List<ServiceTerritory> getAllTers()
+    	public static List<ServiceTerritory> getAllTers()
         {
     		List<serviceTerritory> AllTers = [select Id,Name from ServiceTerritory];
     	return AllTers;
     	}
 
         @RemoteAction
-    	global static Integer getNumOfAvaliableResToCreate()
+    	public static Integer getNumOfAvaliableResToCreate()
         {
     		String NumOfAvaliableResToCreate = '0';
     		PermissionSetLicense schedulingPslObject = [SELECT DeveloperName, TotalLicenses,UsedLicenses FROM PermissionSetLicense WHERE  DeveloperName = 'FieldServiceSchedulingPsl'];
@@ -30,10 +32,14 @@ global class DataCreatorController {
     	}
     	
     	@RemoteAction
-    	global static String CreateResources(Integer numOfUsers, Double Radius, String Prefix, String serviceTer,Decimal centralLat, Decimal centralLong)
-        {
+    	public static String CreateResources(Integer numOfUsers, Double Radius, String Prefix, String serviceTer,Decimal centralLat, Decimal centralLong)
+        {   
+            DataCreatorSet__c currentStatus = retreiveCurrentStatusCustomSett();
+            currentStatus.CurrentStatus__c = 'Starting';
+
     		DataCreator_CreateUsersAsBatch batch = new DataCreator_CreateUsersAsBatch(numOfUsers,Prefix,centralLat,centralLong,Radius,serviceTer);
             Database.executeBatch(batch,50);
+            
             
         return 'Success!';
     	}
@@ -56,6 +62,23 @@ global class DataCreatorController {
             results.add(foundLongitude);
             return results;
         }
+        @RemoteAction
+        public static String retreiveCurrentStatus (){
+            DataCreatorSet__c CurrentStatusObj = DataCreatorSet__c.getInstance('CurrentStatus');
+            return CurrentStatusObj.CurrentStatus__c;
+          
+        }
+        public static void changeCurrentStatusSetting(String CurrentStatus,Id currentBatchId){
+
+        }
+        public static DataCreatorSet__c retreiveCurrentStatusCustomSett(){
+            DataCreatorSet__c CurrentStatusObj = DataCreatorSet__c.getInstance('CurrentStatus');
+            //if (CurrentStatusObj.CurrentStatus__c == null)
+            //    DataCreatorSet__c CurrentStatusSet = new DataCreatorSet__c('CurrentStatus');
             
+            return CurrentStatusObj;
+        }
+        
+               
 }
 

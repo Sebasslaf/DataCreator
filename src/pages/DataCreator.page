@@ -223,7 +223,8 @@
          var RemoteActions = {
             getAllTers: '{!$RemoteAction.DataCreatorController.getAllTers}',
             getNumOfAvaliableResToCreate: '{!$RemoteAction.DataCreatorController.getNumOfAvaliableResToCreate}',
-            CreateResources: '{!$RemoteAction.DataCreatorController.CreateResources}'
+            CreateResources: '{!$RemoteAction.DataCreatorController.CreateResources}',
+            retreiveCurrentStatus: '{!$RemoteAction.DataCreatorController.retreiveCurrentStatus}'
 
             };
          </script>

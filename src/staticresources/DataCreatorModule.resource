@@ -28,6 +28,8 @@
       $scope.createdSuccess = false;
       $scope.ResPrefix = "";
       $scope.initialTer = "";
+      $scope.currentBatchStatus = "";
+      $scope.GetCurrentBatchStatus();
       
     }
 
@@ -157,13 +159,33 @@
           
       }
        //update Radius
-          $scope.updateRadius = function(val){
+          $scope.ƒ = function(val){
               $scope.radius = val;
               if ($scope.marker)
                 $scope.CreateOrUpdateCircle($scope.marker.getPosition());
 
             
           }
+
+      // Get Current Status From private setting
+        $scope.GetCurrentBatchStatus = function(){
+          Visualforce.remoting.Manager.invokeAction(
+          RemoteActions.retreiveCurrentStatus,
+          function(retreivedStatus,ev){
+            if(ev.statusCode!=200){
+        console.log("Error Getting num of free licences");
+            }
+            else {
+            $scope.currentBatchStatus = retreivedStatus;
+            console.log('currentBatchStatus is: ' + $scope.currentBatchStatus);
+            }
+          })
+        };
+          
+
+
+
+
 
       // Get number of free licenses
       $scope.getNumOfAvaliableResToCreate = function () {

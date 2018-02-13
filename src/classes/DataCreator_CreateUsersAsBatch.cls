@@ -24,7 +24,9 @@ global class DataCreator_CreateUsersAsBatch implements Database.Batchable <User>
 		//List<ServiceTerritory> SerTer = [select Id,Name from ServiceTerritory where Name = :selectedTer];
 		//System.debug('SelectedTer is: ' + SerTer[0].Name);
 		Profile profileId = [select Id from Profile where Name LIKE '%Standard User%'];
-		
+		DataCreatorSet__c currentStatus = DataCreatorController.retreiveCurrentStatusCustomSett();
+        currentStatus.CurrentStatus__c = 'Creating Users';
+        update currentStatus;
 		System.debug('User Create Batch Executed');
 		System.debug('The following Data Was Received: ');
 		System.debug(Amount + ', ' + resPrefix);
@@ -58,6 +60,9 @@ global class DataCreator_CreateUsersAsBatch implements Database.Batchable <User>
 							LIKE '%FSL_Resource_Permissions%'];
 
 		insert Users;
+		DataCreatorSet__c currentStatus = DataCreatorController.retreiveCurrentStatusCustomSett();
+        currentStatus.CurrentStatus__c = 'Assigning licenses';
+        update currentStatus;
 		List<User> usersToAssign = [select Id,Name from User order by createdDate desc limit :Amount];
 		List<PermissionSetAssignment> newPSAs = new List<PermissionSetAssignment>();
 		for (User s : usersToAssign){

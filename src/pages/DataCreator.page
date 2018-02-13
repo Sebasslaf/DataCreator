@@ -196,7 +196,7 @@
                                           <!-- Start of CreateResources Button -->       
                                        <div>
                                            <button class="slds-button slds-button_brand slds-m-top--medium slds-m-bottom--left" id="create-resources-button"  
-                                                  ng-click="CreateResources(Amount,radius,ResPrefix,initialTer);" ng-disabled="working" style="font-size:small;">Create Resources!
+                                                  ng-click="CreateResources(Amount,radius,ResPrefix,initialTer);" ng-disabled="working" style="font-size:small;">{{currentStatusPlaceHolder}}
                                            </button>
                                       </div>
                                       <!-- Start Working Spinner -->

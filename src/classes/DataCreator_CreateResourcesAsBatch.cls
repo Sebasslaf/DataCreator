@@ -18,7 +18,9 @@ global class DataCreator_CreateResourcesAsBatch implements Database.Batchable <S
 	
 
 	global List<ServiceResource> start(Database.BatchableContext BC) {
-
+		DataCreatorSet__c currentStatus = DataCreatorController.retreiveCurrentStatusCustomSett();
+        currentStatus.CurrentStatus__c = 'Creating Resources';
+        update currentStatus;
 		List<ServiceResource> resourcesToCreate = new List<ServiceResource>();
 		for (User singleUser : usersList){
 			ServiceResource sr = new ServiceResource();
@@ -40,6 +42,9 @@ global class DataCreator_CreateResourcesAsBatch implements Database.Batchable <S
 		insert Resources;
 		
 			// Create STM's
+		DataCreatorSet__c currentStatus = DataCreatorController.retreiveCurrentStatusCustomSett();
+        currentStatus.CurrentStatus__c = 'Creating Territory Members';
+        update currentStatus;
 		List<ServiceResource> resourcesForSTMs = [select Id from  ServiceResource order by createdDate desc limit :Amount];
 		DateTime EffectiveStart = DateTime.now().addDays(-1);
 		DateTime EffectiveEnd = DateTime.now().addYears(2);
@@ -70,7 +75,9 @@ global class DataCreator_CreateResourcesAsBatch implements Database.Batchable <S
 
 
 	global void finish(Database.BatchableContext BC) {
-
+		DataCreatorSet__c currentStatus = DataCreatorController.retreiveCurrentStatusCustomSett();
+        currentStatus.CurrentStatus__c = 'Completed!';
+        update currentStatus;
 	}
 
 }

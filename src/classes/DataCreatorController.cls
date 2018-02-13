@@ -35,7 +35,8 @@ public class DataCreatorController {
     	public static String CreateResources(Integer numOfUsers, Double Radius, String Prefix, String serviceTer,Decimal centralLat, Decimal centralLong)
         {   
             DataCreatorSet__c currentStatus = retreiveCurrentStatusCustomSett();
-            currentStatus.CurrentStatus__c = 'Starting';
+            currentStatus.CurrentStatus__c = 'Preparing Data';
+            update currentStatus;
 
     		DataCreator_CreateUsersAsBatch batch = new DataCreator_CreateUsersAsBatch(numOfUsers,Prefix,centralLat,centralLong,Radius,serviceTer);
             Database.executeBatch(batch,50);

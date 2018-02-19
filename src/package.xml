@@ -4,7 +4,6 @@
         <members>DataCreatorController</members>
         <members>DataCreator_CreateResourcesAsBatch</members>
         <members>DataCreator_CreateUsersAsBatch</members>
-        <members>ut_createUsers</members>
         <name>ApexClass</name>
     </types>
     <types>
@@ -17,7 +16,6 @@
     </types>
     <types>
         <members>DataCreatorModule</members>
-        <members>DataCreatorModule_Map</members>
         <members>globalStyles</members>
         <name>StaticResource</name>
     </types>

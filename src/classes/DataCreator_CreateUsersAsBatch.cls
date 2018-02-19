@@ -60,9 +60,7 @@ global class DataCreator_CreateUsersAsBatch implements Database.Batchable <User>
 							LIKE '%FSL_Resource_Permissions%'];
 
 		insert Users;
-		DataCreatorSet__c currentStatus = DataCreatorController.retreiveCurrentStatusCustomSett();
-        currentStatus.CurrentStatus__c = 'Assigning licenses';
-        update currentStatus;
+		
 		List<User> usersToAssign = [select Id,Name from User order by createdDate desc limit :Amount];
 		List<PermissionSetAssignment> newPSAs = new List<PermissionSetAssignment>();
 		for (User s : usersToAssign){
@@ -83,6 +81,10 @@ global class DataCreator_CreateUsersAsBatch implements Database.Batchable <User>
 	}
 
 	global void finish(Database.BatchableContext BC) {
+		DataCreatorSet__c currentStatus = DataCreatorController.retreiveCurrentStatusCustomSett();
+        currentStatus.CurrentStatus__c = 'Assigning licenses';
+        update currentStatus;
+  		
 		List<User> usersToCreateResources = [select Id,Name from User order by createdDate desc limit :Amount];
 		DataCreator_CreateResourcesAsBatch batch = new DataCreator_CreateResourcesAsBatch(usersToCreateResources,Amount,Radiuss,centralLat,centralLong,selectedTerritory);
         Database.executeBatch(batch,50);

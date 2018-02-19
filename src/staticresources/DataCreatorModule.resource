@@ -1,5 +1,5 @@
   var app = angular.module('DataCreator', []);
-  app.controller('FSLDataCreatorController', function($scope, $timeout) {
+  app.controller('FSLDataCreatorController', function($scope, $timeout,$interval) {
     "use strict";
     $scope.init=function(){
       $scope.tabClasses=["",""];
@@ -30,7 +30,7 @@
       $scope.initialTer = "";
       $scope.currentBatchStatus = "";
       $scope.currentStatusPlaceHolder = "Create Resources!";
-      
+      $scope.stopPolling = false;
     }
 
   // Tab Navigation
@@ -39,8 +39,6 @@
       return;
     }
     $scope.showTab=tabIndex;
-
-
     for(var i=0; i<$scope.tabClasses.length; i++){
       if(i==tabIndex){
         $scope.tabClasses[i]="slds-active";
@@ -51,66 +49,58 @@
       else{
         $scope.tabClasses[i]="";
         $scope.MapInit();
-
-        
       }
     }
   }
       // Load Service Territories to Picklist
-
-      $scope.GetTers = function () {
-        var initialTer = '';
-        Visualforce.remoting.Manager.invokeAction(
-          RemoteActions.getAllTers,
-          function(lstTers, ev){
-            if(ev.statusCode!=200){
-              console.log("Error loading locations:" +ev);
-            }
-            else{
-
-              console.log("Loaded Locations");
-              console.log(lstTers);
-
-              $scope.Ters = lstTers;
-              $scope.initialTer = $scope.Ters[0]; 
-              console.log(initialTer);
-              $scope.$apply();
-            }
-          })
-      };
+  $scope.GetTers = function () {
+    var initialTer = '';
+    Visualforce.remoting.Manager.invokeAction(
+      RemoteActions.getAllTers,
+      function(lstTers, ev){
+      if(ev.statusCode!=200){
+        console.log("Error loading locations:" +ev);
+      }
+      else{
+        console.log("Loaded Locations");
+        console.log(lstTers);
+        $scope.Ters = lstTers;
+        $scope.initialTer = $scope.Ters[0]; 
+        console.log(initialTer);
+        $scope.$apply();
+      }
+    })
+  };
 
       
     
     // Map
-    $scope.MapInit = function(){
-      var myCenter = new google.maps.LatLng($scope.lat, $scope.lng);
-        var map = new google.maps.Map(document.getElementById('map'), {
-          zoom: 12,
-          center: myCenter,
-          mapTypeId: google.maps.MapTypeId.ROADMAP
-
-        });
-        $scope.mapInstance=map;
-        map.setOptions({ disableDoubleClickZoom: true });
-        var input = (document.getElementById('address-input'));
-        var searchBox = new google.maps.places.SearchBox(input);
-        map.addListener('bounds_changed', function() {
-          searchBox.setBounds(map.getBounds());
-        });
-        searchBox.addListener('places_changed', function() {
-          var places = searchBox.getPlaces();
-
-          if (places.length == 0) {
-            return;
-          }
-          else{
-            var ll = new google.maps.LatLng(places[0].geometry.location.lat(), places[0].geometry.location.lng());
-            $scope.UpdateMap(ll);
-            $scope.UpdateAddress(ll);
-          }
-          //google.maps.event.trigger($scope.mapInstance, 'resize');
-
-        });
+  $scope.MapInit = function(){
+    var myCenter = new google.maps.LatLng($scope.lat, $scope.lng);
+    var map = new google.maps.Map(document.getElementById('map'), {
+      zoom: 12,
+      center: myCenter,
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+    })
+    $scope.mapInstance=map;
+    map.setOptions({ disableDoubleClickZoom: true });
+    var input = (document.getElementById('address-input'));
+    var searchBox = new google.maps.places.SearchBox(input);
+    map.addListener('bounds_changed', function() {
+      searchBox.setBounds(map.getBounds());
+    });
+    searchBox.addListener('places_changed', function() {
+      var places = searchBox.getPlaces();
+      if (places.length == 0) {
+        return;
+      }
+      else{
+        var ll = new google.maps.LatLng(places[0].geometry.location.lat(), places[0].geometry.location.lng());
+        $scope.UpdateMap(ll);
+        $scope.UpdateAddress(ll);      
+      }
+      //google.maps.event.trigger($scope.mapInstance, 'resize');
+  });
 
           //Adding event listener for double click on map
           map.addListener('dblclick', function(event){
@@ -136,7 +126,6 @@
           $scope.marker.setAnimation(google.maps.Animation.DROP);
           $scope.marker.setPosition(latlng);
           $scope.mapInstance.setCenter($scope.marker.getPosition());
-
           $scope.CreateOrUpdateCircle(latlng);
         }
         
@@ -159,7 +148,7 @@
           
       }
        //update Radius
-          $scope.ƒ = function(val){
+          $scope.updateRadius  = function(val){
               $scope.radius = val;
               if ($scope.marker)
                 $scope.CreateOrUpdateCircle($scope.marker.getPosition());
@@ -174,20 +163,14 @@
           RemoteActions.retreiveCurrentStatus,
           function(retreivedStatus,ev){
             if(ev.statusCode!=200){
-        console.log("Error Getting num of free licences");
+        console.log("Error getting current status");
             }
             else {
-            $scope.currentStatusPlaceHolder = $scope.currentBatchStatus;
-            console.log('currentBatchStatus is: ' + $scope.currentBatchStatus);
+            $scope.currentStatusPlaceHolder = retreivedStatus;
+            console.log('currentBatchStatus is: ' + $scope.currentStatusPlaceHolder);
             }
           })
         }
-      
-          
-
-
-
-
 
       // Get number of free licenses
       $scope.getNumOfAvaliableResToCreate = function () {
@@ -198,71 +181,55 @@
         console.log("Error Getting num of free licences");
         }
         else {
-        
         $scope.NumOfLicences = numOfFreeLicences;
         console.log(' getNumOfAvaliableResToCreate have Run');
         console.log($scope.NumOfLicences);
         $scope.LicenseNumberplacehold = $scope.NumOfLicences;
         $scope.$apply();
-
         }
-      
       })
     };
 
 
-    // Call Create Resources Method
-    $scope.FinishedWork = function(){
-      setTimeout(function(){$scope.CreateWorking=false;}, 3000);
-    }
-    $scope.CreateResources = function(Amount,radius,ResPrefix,serviceTer,lat,lng){
-      //setInterval($scope.GetCurrentBatchStatus(),300);
-      $scope.CreateWorking=true;
-      Visualforce.remoting.Manager.invokeAction(
-      RemoteActions.CreateResources,$scope.Amount, $scope.radius, $scope.ResPrefix, $scope.initialTer.Name, $scope.circle.getCenter().lat(), $scope.circle.getCenter().lng(),
-      function(msg,ev){
-        
-        
-        }, {escape: false})
-      
-      
-      }
     
-  
+    // $scope.FinishedWork = function(){
+    //   setTimeout(function(){$scope.CreateWorking=false;}, 5000);
+    // }
+
+    // Call Create Resources Method
+    $scope.CreateResources = function(Amount,radius,ResPrefix,serviceTer,lat,lng){
+      var interval = $interval($scope.GetCurrentBatchStatus, 200, 200 );
+      $scope.CreateWorking=true;
+      // Visualforce.remoting.Manager.invokeAction(
+      // RemoteActions.CreateResources,$scope.Amount, $scope.radius, $scope.ResPrefix, $scope.initialTer.Name, $scope.circle.getCenter().lat(), $scope.circle.getCenter().lng(),
+      // function(msg,ev){
+      //   }, {escape: false})
+      }
 
 
-    // Confirm Click Button
-    $scope.confirmCreate= function(){
-      $scope.confirmCreateNotification=true;
-    //$scope.turnOffMessages();
-    }  
 /////////////////////////////////////////
       
    // Create Or Update Circle
   $scope.CreateOrUpdateCircle = function(latlng){
     if ($scope.circle == undefined) {
-          $scope.circle = new google.maps.Circle({
-            center: latlng,
-            map: $scope.mapInstance,
-            radius: $scope.radius * 1000,
-            fillColor: '#23D452',
-            fillOpacity: 0.4,
-            strokeColor: '#20873C',
-            strokeOpacity: 0.7,
-            editable: false,
-            strokeWeight: 0.5
-          });
-          console.log('Current position' + $scope.circle.getCenter());
-        }
-      else
-      {
-        $scope.circle.setCenter(latlng);
-        $scope.circle.setRadius($scope.radius * 1000);
-        console.log('Current position' + $scope.circle.getCenter());
+        $scope.circle = new google.maps.Circle({
+          center: latlng,
+          map: $scope.mapInstance,
+          radius: $scope.radius * 1000,
+          fillColor: '#23D452',
+          fillOpacity: 0.4,
+          strokeColor: '#20873C',
+          strokeOpacity: 0.7,
+          editable: false,
+          strokeWeight: 0.5
+    });
+    console.log('Current position' + $scope.circle.getCenter());
+    }
+    else
+    {
+      $scope.circle.setCenter(latlng);
+      $scope.circle.setRadius($scope.radius * 1000);
+      console.log('Current position' + $scope.circle.getCenter());
       }
-    }
-    }
-        /////////////////////////////////////////
-  
-
-  });
+  };
+});

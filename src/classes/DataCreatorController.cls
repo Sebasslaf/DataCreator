@@ -4,7 +4,7 @@ public class DataCreatorController {
     public DataCreatorController() {
         
     }
-    
+       
     	@RemoteAction
     	public static List<ServiceTerritory> getAllTers()
         {
@@ -82,4 +82,3 @@ public class DataCreatorController {
         
                
 }
-

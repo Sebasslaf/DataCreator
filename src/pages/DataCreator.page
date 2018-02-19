@@ -4,10 +4,11 @@
        <apex:stylesheet value="{!URLFOR($Resource.SLDS221, 'assets/styles/salesforce-lightning-design-system-vf.min.css')}" />
        <apex:includescript value="{!$Resource.angular150min}" />
        <apex:includescript value="{!$Resource.DataCreatorModule}" />
-       <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDRrrvrBfNHLPVBvB_z5pcEXrR4zov2uXw&libraries=places"></script>
+       <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDRrrvrBfNHLPVBvB_z5pcEXrR4zov2uXw&libraries=places&v=3.30"></script>
        <head>
            <meta charset="utf-8" />
-           <meta http-equiv="x-ua-compatible" content="ie=edge" />
+           
+           <meta http-equiv="X-UA-Compatible" content="IE=edge"></meta>
            <link rel="stylesheet" type="text/css" href="{!$Resource.globalStyles}"></link>
            <title>FSL Data Creator Tool</title>
        </head>
@@ -190,8 +191,18 @@
                                        </div>
                                       <!-- Map -->
                                           <input id="address-input" class="slds-input" type="text" placeholder="Enter Address Here First" ng-disabled="working" />
-                                          <div id="map">
-                                            
+                                          
+                                            <!-- Start Working Spinner -->
+                                      <div class="slds-spinner_container ng-cloak" ng-show="CreateWorking">
+
+                                        <div class="slds-spinner--brand slds-spinner slds-spinner--large" aria-hidden="true" role="alert">
+
+                                          <div class="slds-spinner__dot-a"></div>
+                                          <div class="slds-spinner__dot-b"></div>
+                                        </div>
+                                      </div>
+                                      <div id="map">
+          <!--    End Working Spinner -->
                                           </div>
                                           <!-- Start of CreateResources Button -->       
                                        <div>
@@ -199,19 +210,12 @@
                                                   ng-click="CreateResources(Amount,radius,ResPrefix,initialTer);" ng-disabled="working" style="font-size:small;">{{currentStatusPlaceHolder}}
                                            </button>
                                       </div>
-                                      <!-- Start Working Spinner -->
-                                      <div class="slds-spinner_container ngcloak" ng-show="CreateWorking">
-                                        <div class="slds-spinner--brand slds-spinner slds-spinner--large" aria-hidden="true" role="alert">
-                                          <div class="slds-spinner__dot-a"></div>
-                                          <div class="slds-spinner__dot-b"></div>
-                                        </div>
-                                      </div>
-          <!--    End Working Spinner -->
+                                      
 
                                           <!-- End of CreateResources Button --> 
                        </div>
     
-                   						
+         <!--   		 -->
                    
                         </div>
                         </div>
@@ -225,7 +229,6 @@
             getNumOfAvaliableResToCreate: '{!$RemoteAction.DataCreatorController.getNumOfAvaliableResToCreate}',
             CreateResources: '{!$RemoteAction.DataCreatorController.CreateResources}',
             retreiveCurrentStatus: '{!$RemoteAction.DataCreatorController.retreiveCurrentStatus}'
-
             };
          </script>
      </html>

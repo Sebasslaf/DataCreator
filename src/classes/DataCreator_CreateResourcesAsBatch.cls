@@ -42,9 +42,9 @@ global class DataCreator_CreateResourcesAsBatch implements Database.Batchable <S
 		insert Resources;
 		
 			// Create STM's
-		DataCreatorSet__c currentStatus = DataCreatorController.retreiveCurrentStatusCustomSett();
-        currentStatus.CurrentStatus__c = 'Creating Territory Members';
-        update currentStatus;
+		//DataCreatorSet__c currentStatus = DataCreatorController.retreiveCurrentStatusCustomSett();
+  //      currentStatus.CurrentStatus__c = 'Creating Territory Members';
+  //      update currentStatus;
 		List<ServiceResource> resourcesForSTMs = [select Id from  ServiceResource order by createdDate desc limit :Amount];
 		DateTime EffectiveStart = DateTime.now().addDays(-1);
 		DateTime EffectiveEnd = DateTime.now().addYears(2);
@@ -59,7 +59,7 @@ global class DataCreator_CreateResourcesAsBatch implements Database.Batchable <S
 			newSTM.ServiceResourceId = resourceToCreate.Id;
 			newSTM.EffectiveStartDate = EffectiveStart;
 			newSTM.EffectiveEndDate = EffectiveEnd;
-			System.debug('Finished regular data /b starting Lat Long calculation');
+			System.debug('Finished regular data /n starting Lat Long calculation');
 			if (centralLong != null && centralLat != null) {
 				List<Double> results = DataCreatorController.GenerateLatLongWithinCircle(centralLat,centralLong,Radius);
 				newSTM.Latitude = results[0];
